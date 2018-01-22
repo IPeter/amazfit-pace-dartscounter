@@ -87,7 +87,7 @@ public class GameActivity extends Activity {
             sum += throwList.get(i);
         }
 
-        return "avg: " + Float.toString((float)Math.ceil(sum/throwList.size()));
+        return "avg: " + Integer.toString((int)Math.ceil(sum/throwList.size()));
     }
 
     protected String getCheckout(){

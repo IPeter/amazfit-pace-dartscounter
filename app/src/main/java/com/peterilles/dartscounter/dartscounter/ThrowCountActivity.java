@@ -17,6 +17,31 @@ public class ThrowCountActivity extends Activity {
         final TextView dartsCount = findViewById(R.id.darts_count_text);
         final SeekBar numberSeekbar = findViewById(R.id.seekbar_number);
 
+        final TextView minus = findViewById(R.id.minus);
+        final TextView plus = findViewById(R.id.plus);
+
+        minus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int currentdartsCount = Integer.parseInt(dartsCount.getText().toString());
+
+                if (currentdartsCount > 0){
+                    dartsCount.setText(Integer.toString(--currentdartsCount));
+                }
+            }
+        });
+
+        plus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int currentdartsCount = Integer.parseInt(dartsCount.getText().toString());
+
+                if (currentdartsCount < 180){
+                    dartsCount.setText(Integer.toString(++currentdartsCount));
+                }
+            }
+        });
+
         dartsCount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
