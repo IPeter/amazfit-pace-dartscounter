@@ -7,6 +7,7 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.KeyEvent;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -91,6 +92,15 @@ public class GameActivity extends Activity {
     }
 
     protected String getCheckout(){
+        try {
+            int ressourceId = getResources().getIdentifier(
+                    "checkout_"+score,
+                    "string",
+                    getBaseContext().getPackageName());
+
+            return getResources().getString(ressourceId);
+        } catch (Exception e){}
+
         return "-";
     }
 
