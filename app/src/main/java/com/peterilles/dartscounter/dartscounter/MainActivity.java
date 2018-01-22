@@ -34,7 +34,7 @@ public class MainActivity extends Activity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent intent = new Intent(getBaseContext(), GameActivity.class);
-                intent.putExtra("game", games[i]);
+                intent.putExtra("game", Integer.parseInt(games[i]));
 
                 startActivity(intent);
             }

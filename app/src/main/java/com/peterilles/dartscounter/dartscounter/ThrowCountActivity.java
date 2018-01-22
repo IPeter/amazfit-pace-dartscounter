@@ -1,7 +1,9 @@
 package com.peterilles.dartscounter.dartscounter;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
@@ -10,10 +12,21 @@ public class ThrowCountActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.throw_count_main);
 
         final TextView dartsCount = findViewById(R.id.darts_count_text);
-        SeekBar numberSeekbar = findViewById(R.id.seekbar_number);
+        final SeekBar numberSeekbar = findViewById(R.id.seekbar_number);
+
+        dartsCount.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = getIntent();
+                intent.putExtra("throw", Integer.parseInt(((TextView)view).getText().toString()));
+                setResult(Activity.RESULT_OK, intent);
+
+                finish();
+            }
+        });
 
         numberSeekbar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
