@@ -5,13 +5,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.view.KeyEvent;
 import android.view.View;
-import android.widget.Button;
+import android.view.WindowManager;
 import android.widget.TextView;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class GameActivity extends Activity {
 
@@ -28,6 +26,8 @@ public class GameActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
+
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
         score = getIntent().getIntExtra("game", 501);
 
